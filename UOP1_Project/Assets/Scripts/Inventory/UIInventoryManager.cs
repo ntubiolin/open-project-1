@@ -28,13 +28,13 @@ public class UIInventoryManager : MonoBehaviour
 	private List<InventoryItemFiller> instantiatedGameObjects;
 
 
-	public ItemEventChannelSo CookRecipeEvent;
-	public ItemEventChannelSo UseItemEvent;
-	public ItemEventChannelSo EquipItemEvent;
+	public ItemEventChannelSO CookRecipeEvent;
+	public ItemEventChannelSO UseItemEvent;
+	public ItemEventChannelSO EquipItemEvent;
 
 	public TabEventChannelSo ChangeTabEvent;
 
-	public ItemEventChannelSo SelectItemEvent;
+	public ItemEventChannelSO SelectItemEvent;
 
 	public VoidEventChannelSO ActionButtonClicked;
 
@@ -294,7 +294,7 @@ public class UIInventoryManager : MonoBehaviour
 		if (ActionButtonClicked != null)
 		{
 			//find the selected Item
-			if (instantiatedGameObjects.Count > selectedItemId)
+			if (instantiatedGameObjects.Count > selectedItemId && selectedItemId > -1)
 			{
 				//find the item 
 				Item itemToActOn = new Item();
