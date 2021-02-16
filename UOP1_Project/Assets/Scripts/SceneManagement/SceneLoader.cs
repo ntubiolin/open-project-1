@@ -5,14 +5,10 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This class manages the scene loading and unloading.
-/// Heavy on comments right now because it is still being worked on.
 /// </summary>
 public class SceneLoader : MonoBehaviour
 {
-	[Header("Persistent Manager Scene")]
 	[SerializeField] private GameSceneSO _persistentManagersScene = default;
-
-	[Header("Gameplay Scene")]
 	[SerializeField] private GameSceneSO _gameplayScene = default;
 
 	[Header("Load Events")]
@@ -24,6 +20,7 @@ public class SceneLoader : MonoBehaviour
 	[Header("Broadcasting on")]
 	[SerializeField] private BoolEventChannelSO _ToggleLoadingScreen = default;
 	[SerializeField] private VoidEventChannelSO _OnSceneReady = default;
+	[SerializeField] private FadeChannelSO _OnFade = default;
 
 	private List<AsyncOperation> _scenesToLoadAsyncOperations = new List<AsyncOperation>();
 	private List<Scene> _scenesToUnload = new List<Scene>();
@@ -129,6 +126,7 @@ public class SceneLoader : MonoBehaviour
 				{
 					_loadingDone = true;
 					_scenesToLoadAsyncOperations.Clear();
+					_persistentScenes.Clear();
 				}
 			}
 			yield return null;
